@@ -18,7 +18,7 @@ int main() {
 	char charChoice;
 	int compChoice, userChoice,
 		wins = 0, losses = 0, ties = 0;
-	srand(int(time(0)));
+	srand(time(0));
 	do
 	{
 		compChoice = rand() % 3;
@@ -63,9 +63,11 @@ int main() {
 		}
 		cout << "You chose " << choices[userChoice] << " and the computer chose "
 			<< choices[compChoice] << endl;
-		cout << "Do you want to play again? (Y|N): ";
-		cin >> input;
-		repChar = tolower(input[0]);
+		do {
+			cout << "Do you want to play again? (Y|N): ";
+			cin >> input;
+			repChar = tolower(input[0]);
+		} while (repChar != 'y' && repChar != 'n');
 	} while (repChar == 'y');
 	cout << "\nYou ended with " << wins << " wins, " << losses << " losses, and "
 		<< ties << " ties!\n";
