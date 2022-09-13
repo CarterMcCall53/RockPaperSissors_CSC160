@@ -35,7 +35,6 @@ int main() {
 			cout << "PLEASE CHOOSE A VALID PLAY";
 			continue;
 		}
-		cout << "\n";
 		if (userChoice == compChoice)
 		{
 			cout << "You have tied the computer!" << endl;
