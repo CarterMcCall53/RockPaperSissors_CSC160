@@ -5,20 +5,28 @@
 *		Create the rock paper sissors game
 *  Modified 12 September 2022:
 *		Add score keeping abilities
+*  Modified 22 September 2022:
+*		Add file read and write capabilities
 */
 
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 int main() {
-	string repeat;
-	string input;
-	string choices[] = { "Rock", "Paper", "Sissors" };
-	char repChar;
-	char charChoice;
+	string repeat, input, fileName, userName, choices[] = { "Rock", "Paper", "Sissors" };
+	char repChar, charChoice;
 	int compChoice, userChoice,
 		wins = 0, losses = 0, ties = 0;
 	srand(time(0));
+	cout << "What is your name? ";
+	getline(cin, userName);
+	fileName = userName + ".txt";
+	ifstream infile;
+	ofstream outfile;
+	infile.open(fileName);
+	if (infile) infile >> wins >> losses >> ties;
 	do
 	{
 		compChoice = rand() % 3;
@@ -70,4 +78,10 @@ int main() {
 	} while (repChar == 'y');
 	cout << "\nYou ended with " << wins << " wins, " << losses << " losses, and "
 		<< ties << " ties!\n";
+	infile.close();
+	outfile.open(fileName);
+	if (outfile) {
+		outfile << wins << " " << losses << " " << ties;
+	}
+	outfile.close();
 }
