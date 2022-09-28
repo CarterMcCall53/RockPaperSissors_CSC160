@@ -7,6 +7,8 @@
 *		Add score keeping abilities
 *  Modified 22 September 2022:
 *		Add file read and write capabilities
+*  Modified 27 September 2022:
+*		Add 2 player capabilities
 */
 
 #include <iostream>
