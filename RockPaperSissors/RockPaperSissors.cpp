@@ -14,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdlib.h>
 using namespace std;
 
 int main() {
@@ -132,7 +133,8 @@ int main() {
 					cout << "PLEASE CHOOSE A VALID PLAY";
 					continue;
 				}
-				cout << "\nWhat would " << userName2 << " like to play? (R|P|S): ";
+				system("CLS");	
+				cout << "What would " << userName2 << " like to play? (R|P|S): ";
 				cin >> input;
 				charTwoChoice = tolower(input[0]);
 				if (charTwoChoice == 'r') pTwoChoice = 0;
